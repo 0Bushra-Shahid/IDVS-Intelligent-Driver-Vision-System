@@ -1,5 +1,8 @@
 # 🚗 IDVS — Intelligent Driver Vision System
+
 > A real-time AI-powered driver monitoring system that uses a single webcam to simultaneously detect driver emotion, drowsiness, and distraction — and responds intelligently to each.
+
+---
 
 ## 🎯 Problem Statement
 
@@ -7,16 +10,24 @@ Road accidents are one of the leading causes of death worldwide. Three major con
 - **Driver drowsiness** — microsleep behind the wheel
 - **Emotional fatigue** — stress, sadness affecting focus
 - **Distraction** — looking away from the road
+
 **IDVS addresses all three simultaneously using a single camera and AI.**
+
+---
 
 ## 🧠 System Overview
 
 IDVS consists of **3 independently trained modules** that are integrated into one unified real-time system:
+
+```
 Camera Input
      │
      ├──► FER Module      → Detect emotion → Play matching song
      ├──► MRL Module      → Detect drowsiness → Trigger alarm
      └──► Distraction     → Detect head pose → Trigger alert
+```
+
+---
 
 ## 📦 Modules
 
@@ -71,6 +82,8 @@ Camera Input
 - Normal blinks (< 1 second) are ignored
 - Alarm only stops when eyes remain open for 1+ second continuously
 
+---
+
 ### ⚠️ Module 3 — Distraction Detection
 
 | Property | Details |
@@ -86,6 +99,8 @@ Camera Input
 - If face size decreases significantly → driver looked away
 - Tracks up/down movement via face position in frame
 
+---
+
 ## 🔧 Tech Stack
 
 | Technology | Purpose |
@@ -99,9 +114,11 @@ Camera Input
 | Matplotlib + Seaborn | Data visualization |
 | Scikit-learn | Model evaluation & metrics |
 
+---
 
 ## 📁 Project Structure
 
+```
 IDVS/
 ├── FER Model/
 │   ├── Data/
@@ -142,12 +159,15 @@ IDVS/
 │   └── integrated_system.ipynb   ← Run this for full system
 │
 └── README.md
+```
 
+---
 
 ## 📊 Complete ML Pipeline
 
 Each module followed a complete ML pipeline from scratch:
 
+```
 Raw Dataset
      ↓
 1. Cleaning
@@ -185,6 +205,9 @@ Raw Dataset
 6. Real-time Detection
      ↓
 7. Integration (all 3 modules together)
+```
+
+---
 
 ## 🏗️ CNN Architecture
 
@@ -200,6 +223,8 @@ Raw Dataset
 - Same structure as FER
 - Output: Dense(1, sigmoid) — binary classification
 - **Total Parameters: 1.18M**
+
+---
 
 ## ⚙️ How to Run
 
@@ -242,6 +267,9 @@ Distraction Model/alarm/    → Add alarm mp3/wav file
 Open Integration/integrated_system.ipynb
 Run all cells
 Press Q to quit camera window
+```
+
+---
 
 ## ✨ Key Features
 
@@ -255,6 +283,7 @@ Press Q to quit camera window
 - ✅ **Overfit prevention** — Dropout, BatchNormalization, L2 Regularization, EarlyStopping
 - ✅ **Class imbalance handled** — Augmentation + Class Weights
 
+---
 
 ## 📈 Results Summary
 
@@ -264,6 +293,8 @@ Press Q to quit camera window
 | MRL | 99.61% | 2 (Open, Closed) | CNN + Supervised Learning |
 | Distraction | Rule-based | Forward / Away | OpenCV |
 
+---
+
 ## 🚧 Limitations & Future Work
 
 - FER sadness/neutral confusion can occur in ambiguous expressions
@@ -272,6 +303,7 @@ Press Q to quit camera window
 - Future: Add anger/fear emotion classes for more comprehensive FER
 - Future: Deploy on Raspberry Pi for embedded vehicle use
 
+---
 
 ## 👩‍💻 Author
 
@@ -279,11 +311,13 @@ Press Q to quit camera window
 BS Computer Science Student
 Passionate about Machine Learning and Computer Vision
 
+---
 
 ## 📄 Disclaimer
 
 This project is for **educational purposes only**. It is a student project and should not be used as a standalone safety-critical system in real vehicles without further validation and testing.
 
+---
 
 ## 🙏 Acknowledgements
 
@@ -291,3 +325,4 @@ This project is for **educational purposes only**. It is a student project and s
 - MRL Eye Dataset — machine learning based eye state detection dataset
 - TensorFlow & Keras — deep learning framework
 - OpenCV — computer vision library
+<img width="1010" height="440" alt="image" src="https://github.com/user-attachments/assets/52679227-0bdd-417f-ba20-ee7f273e9aee" />
